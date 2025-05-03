@@ -1,0 +1,224 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --cursor-size: 20px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  cursor: none;
+}
+
+/* Custom cursor styles - Light Bulb */
+.custom-cursor {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  will-change: transform;
+}
+
+/* Circular cursor - inner dot */
+.cursor-dot {
+  width: 12px;
+  height: 12px;
+  background-color: #38B2AC; /* Teal color */
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 10px rgba(56, 178, 172, 0.6);
+  z-index: 10000;
+}
+
+/* Circular cursor - outer ring */
+.cursor-outline {
+  width: 40px;
+  height: 40px;
+  border: 2px solid #38B2AC; /* Teal color */
+  background-color: transparent;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.3s ease;
+  z-index: 9999;
+}
+
+/* Hide filament since we're using a circular cursor */
+.cursor-filament {
+  display: none;
+}
+
+/* Cursor when hovering over clickable elements */
+.cursor-dot.is-pointer {
+  background-color: #4FD1C5; /* Lighter teal */
+  transform: translate(-50%, -50%) scale(1.5);
+  box-shadow: 0 0 15px rgba(79, 209, 197, 0.8);
+  animation: pulse 1.5s infinite alternate;
+}
+
+.cursor-outline.is-pointer {
+  border-color: #4FD1C5; /* Lighter teal */
+  transform: translate(-50%, -50%) scale(0.8);
+  animation: pulse-border 1.5s infinite alternate;
+}
+
+/* Animations for cursor */
+@keyframes pulse {
+  from { box-shadow: 0 0 10px rgba(79, 209, 197, 0.6); }
+  to { box-shadow: 0 0 20px rgba(79, 209, 197, 0.9); }
+}
+
+@keyframes pulse-border {
+  from { border-color: rgba(79, 209, 197, 0.6); }
+  to { border-color: rgba(79, 209, 197, 1); }
+}
+
+/* Dark mode adjustments */
+.dark .cursor-dot {
+  background-color: #4FD1C5; /* Lighter teal for dark mode */
+  box-shadow: 0 0 15px rgba(79, 209, 197, 0.8);
+}
+
+.dark .cursor-outline {
+  border-color: #4FD1C5; /* Lighter teal for dark mode */
+}
+
+/* Hide default cursor when custom cursor is active */
+.cursor-none {
+  cursor: none;
+}
+
+/* Smooth scrolling for sections */
+.section {
+  scroll-margin-top: 80px;
+}
+
+/* 3D Card effects */
+.card-3d {
+  transform-style: preserve-3d;
+  transition: transform 0.5s ease, box-shadow 0.5s ease;
+  box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.1);
+  position: relative;
+  background-size: cover;
+  background-position: center;
+}
+
+.card-3d::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  background: linear-gradient(120deg, rgba(51, 51, 51, 0.2), transparent);
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.card-3d:hover {
+  transform: rotateY(10deg) rotateX(5deg) translateZ(10px);
+  box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.2);
+}
+
+.card-3d:hover::before {
+  opacity: 1;
+}
+
+.card-3d-content {
+  transform: translateZ(20px);
+  transition: transform 0.5s ease;
+}
+
+.card-3d:hover .card-3d-content {
+  transform: translateZ(30px);
+}
+
+.dark .card-3d {
+  box-shadow: 0 10px 30px -15px rgba(0, 0, 0, 0.4);
+}
+
+.dark .card-3d:hover {
+  box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.6);
+}
+
+.dark .card-3d::before {
+  background: linear-gradient(120deg, rgba(74, 74, 74, 0.2), transparent);
+}
+
+/* Text reveal effect */
+.text-reveal-container {
+  position: relative;
+  overflow: hidden;
+  cursor: ew-resize;
+}
+
+.text-reveal-container::before,
+.text-reveal-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 20%;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.text-reveal-container::before {
+  left: 0;
+  background: linear-gradient(90deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 100%);
+}
+
+.text-reveal-container::after {
+  right: 0;
+  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.1) 100%);
+}
+
+.text-reveal-container:hover::before,
+.text-reveal-container:hover::after {
+  opacity: 1;
+}
+
+.dark .text-reveal-container::before {
+  background: linear-gradient(90deg, rgba(51,51,51,0.1) 0%, rgba(51,51,51,0) 100%);
+}
+
+.dark .text-reveal-container::after {
+  background: linear-gradient(90deg, rgba(51,51,51,0) 0%, rgba(51,51,51,0.1) 100%);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fade-in {
+  animation: fadeIn 1s ease forwards;
+}
+
+@keyframes slideUp {
+  from { transform: translateY(50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.animate-slide-up {
+  animation: slideUp 0.8s ease forwards;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  :root {
+    --cursor-size: 15px;
+  }
+
+  .card-3d:hover {
+    transform: rotateY(5deg) rotateX(5deg);
+  }
+}
