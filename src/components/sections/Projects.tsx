@@ -15,6 +15,13 @@ const Projects = () => {
       "image": "https://images.unsplash.com/photo-1690233662564-f599cc764cca?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8WCUyMHR3aXR0ZXJ8ZW58MHx8MHx8fDI%3D"      
     },
     {
+      "title": "Diabetes Prediction Model",
+      "description": "An end to end machine learning model to predict diabetes using XGBoost alogrithm, Deployment Link is in the github repository README.md file and check-out if you are diabetic or not.",
+      "techStack": ["Scikit-Learn", "Machine Learning", "FastApi", "Python", "UV"],
+      "githubUrl": "https://github.com/Utkarsh-152/Diabetes-Prediction-Model",
+      "image": "https://images.unsplash.com/photo-1624454002429-40ed87a5ec04?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"      
+    },
+    {
       "title": "Revenue Insights In Hospitality Domain",
       "description": "A Power BI Hospitality Revenue Analytics Dashboard analyzing RevPAR, ADR, and occupancy rates to optimize revenue strategies.",
       "techStack": ["Power BI", "Excel", "Data Visualization"],
