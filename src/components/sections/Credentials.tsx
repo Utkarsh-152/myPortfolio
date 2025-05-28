@@ -70,7 +70,7 @@ const Credentials = () => {
   const educationData: Education[] = [
     {
       degree: "Bachelor of Science",
-      institution: "Maa Saraswati Sita Degree College",
+      institution: "Prof. Rajendra Singh University(earlier Allahabad State University)",
       duration: "2022 - 2025",
       description: "Focused on core principles of mathematics and physics, with strong foundations in analytical thinking, problem-solving, and a growing interest in data science, machine learning, and web devlopment.",
       gpa: "7/10"
